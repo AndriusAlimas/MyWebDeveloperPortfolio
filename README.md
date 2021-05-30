@@ -30,6 +30,15 @@ This is my main web developer portfolio. I hope you will enjoy and will contact 
 
 ### This is my WireFrame:
 
+![Dekstop Wireframe](./img/1-WireFrame.PNG) ![Dekstop Wireframe](./img/2-WireFrame.PNG)
+![Dekstop Wireframe](./img/3-WireFrame.PNG)
+![Dekstop Wireframe](./img/4-WireFrame.PNG)
+![Dekstop Wireframe](./img/5-WireFrame.PNG)
+![Dekstop Wireframe](./img/6-WireFrame.PNG)
+
+Text color using: #27341
+Body background color: #EEF2F3
+
 ### Contact
 
 **Author** - Andrius Alimas
