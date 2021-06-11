@@ -30,8 +30,12 @@
       <!-- navigations -->
       <nav>
         <ul class="nav__list">
-          <li class="nav__item"><a href="#" class="nav__link">About</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Skills</a></li>
+          <li class="nav__item">
+            <a href="#about" class="nav__link">About</a>
+          </li>
+          <li class="nav__item">
+            <a href="#skills" class="nav__link">Skills</a>
+          </li>
           <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
           <li class="nav__item"><a href="#" class="nav__link">Portfolio</a></li>
         </ul>
@@ -53,7 +57,7 @@
     </section>
 
     <!-- About Me -->
-    <section class="about">
+    <section class="about" id="about">
       <h1 class="section__title section__title--about">About Me</h1>
       <div class="book">
         <img src="img/profile.jpg" alt="" />
@@ -88,6 +92,24 @@
         </ul>
       </div>
       <button class="view-cv" aria-label="view my cv"></button>
+    </section>
+
+    <!-- My Skills section -->
+    <section class="skills" id="skills">
+      <h1 class="section__title section__title--skills">My Skills</h1>
+      <div class="rotatingBox">
+        <span style="--i: 1"> <img src="img/html5.png" /> </span>
+        <span style="--i: 2"> <img src="img/css3.png" /> </span>
+        <span style="--i: 3"> <img src="img/js.png" /> </span>
+        <span style="--i: 4"> <img src="img/bootstrap.png" /> </span>
+        <span style="--i: 5"> <img src="img/jQuery.png" /> </span>
+        <span style="--i: 6"> <img src="img/node_js.svg" /> </span>
+        <span style="--i: 7"> <img src="img/react.png" /> </span>
+        <span style="--i: 8"> <img src="img/git.png" /> </span>
+        <span style="--i: 9"> <img src="img/php.png" /> </span>
+        <span style="--i: 10"> <img src="img/python.png" /> </span>
+        <span style="--i: 11"> <img src="img/mysql.png" /> </span>
+      </div>
     </section>
   </body>
 </html>
