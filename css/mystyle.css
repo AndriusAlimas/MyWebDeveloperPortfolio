@@ -99,7 +99,7 @@ nav{
   transition: .3s;
 }
 
-.nav-list li:hover .tooltip{
+.nav-list li:hover .tooltip, a:hover .tooltip{
   visibility: visible;
   opacity: 1;
 }
@@ -202,6 +202,7 @@ color: var(--bg-color);
   display: flex;
   justify-content: center;
   overflow: hidden;
+  transition: 1s;
 }
 
 .img-box img{
@@ -209,4 +210,8 @@ color: var(--bg-color);
   display: block;
   width: 100%;
   object-fit: cover;
+}
+
+.img-box.home-img:hover{
+  box-shadow: 0 0 8rem var(--main-color);
 }
