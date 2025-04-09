@@ -46,7 +46,6 @@ html{
 body{
   color: var(--white-color);
   overflow: hidden;
-  background: seagreen;
 }
 
 p{
@@ -97,6 +96,7 @@ nav{
   white-space: nowrap;
   visibility: hidden;
   opacity: 0;
+  transition: .3s;
 }
 
 .nav-list li:hover .tooltip{
