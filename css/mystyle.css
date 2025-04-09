@@ -117,7 +117,7 @@ nav{
   height: 100%;
   transform-style: preserve-3d;
   transform-origin: 50% 50% -50vw;
-  transform: rotateY(-90deg);
+  transform: rotateY(-180deg);
 }
 
 .section{
@@ -135,6 +135,11 @@ nav{
 
 .section.about{
   transform: translateX(50vw) translateZ(-50vw) rotateY(90deg);
+}
+
+.section.resume{
+  transform: translateZ(-100vw) rotateY(-180deg);
+  transform-origin: 50%;
 }
 
 .home,
