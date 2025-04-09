@@ -103,3 +103,10 @@ nav{
   visibility: visible;
   opacity: 1;
 }
+
+.container{
+  width: 100vw;
+  height: 100vh;
+  perspective: 1500px;
+  perspective-origin: 50%;
+}
