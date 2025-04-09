@@ -227,5 +227,28 @@ color: var(--bg-color);
 
 .img-box.about-img{
   background: transparent;
-  box-shadow: 0 0 2rem var(--main-color);
+  box-shadow: 0 0 2rem var(--main-color), inset 0 0 1rem var(--main-color);
+}
+
+.img-box.about-img img{
+  z-index: -1;
+}
+
+.title{
+  font-size: 4rem;
+  text-align: center;
+}
+
+.about-info .title{
+  text-align: left;
+}
+
+.about-info h3{
+  font-size: 2.5rem;
+  color: var(--main-color);
+  margin-top: -0.5rem;
+}
+
+.about-info .btn{
+  padding: 1.2rem 4rem;
 }
