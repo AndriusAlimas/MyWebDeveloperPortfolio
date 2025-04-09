@@ -128,3 +128,15 @@ nav{
   padding: 0 10%;
   backface-visibility: hidden;
 }
+
+.home{
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.home-info h1{
+  font-size: 5.5rem;
+  color: var(--main-color);
+  line-height: 1;
+}
