@@ -1,59 +1,37 @@
-*,
-*::before,
-*::after {
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  border: none;
+  outline: none;
 }
 
-/* 3D rotating box feature in Skills section */
-.section__title--skills {
-  min-height: 70vh;
-  margin-bottom: 1em;
-  text-align: center;
+:root {
+  --nav-bg-color: rgba(255, 255, 255, .1);
+  --bg-color: #171f2b;
+  --second-bg-color: #1f2733;
+  --third-bg-color: #2d3542;
+  --main-color: #0ef;
+  --white-color: #fff;
+  --tab-list-color: #7c8594;
 }
 
-.skills {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background: #fff;
+::selection {
+  background: var(--main-color);
+  color: var(--bg-color);
 }
 
-.rotatingBox {
-  position: relative;
-  width: 300px;
-  height: 150px;
-  transform-style: preserve-3d;
-  animation: animate 50s infinite;
+::-webkit-scrollbar {
+  width: .5rem;
 }
 
-.rotatingBox > span > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 1rem;
 }
 
-/* make animation 3d */
-@keyframes animate {
-  0% {
-    transform: perspective(1000px) rotateY(0deg);
-  }
-  100% {
-    transform: perspective(1000px) rotateY(360deg);
-  }
-}
-.rotatingBox > span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform-origin: center;
-  transform-style: preserve-3d;
-  transform: rotateY(calc(var(--i) * 33deg)) translateZ(480px);
-  -webkit-box-reflect: below 0px
-    linear-gradient(transparent, transparent, #000004);
+::placeholder {
+  color: var(--white-color);
 }
