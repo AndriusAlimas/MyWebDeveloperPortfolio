@@ -38,3 +38,11 @@
 ::placeholder {
   color: var(--white-color);
 }
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  color: var(--white-color);
+}
