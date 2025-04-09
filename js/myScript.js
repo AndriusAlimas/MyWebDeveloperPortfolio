@@ -1,5 +1,5 @@
 const resumeList = document.querySelectorAll(".resume-list");
-
+const resumeBoxs = document.querySelectorAll(".resume-box");
 // navbar actions and all section actions along with cube rotation when navbar is clicked
 
 // resume section when clicking tab-list
@@ -7,6 +7,9 @@ resumeList.forEach((list, indx) => {
   list.addEventListener("click", () => {
     document.querySelector(".resume-list.active").classList.remove("active");
     list.classList.add("active");
+
+    document.querySelector(".resume-box.active").classList.remove("active");
+    resumeBoxs[indx].classList.add("active");
   });
 });
 // portfolio section when clicking tab-list
