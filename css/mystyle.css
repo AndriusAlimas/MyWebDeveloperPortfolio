@@ -117,7 +117,7 @@ nav{
   height: 100%;
   transform-style: preserve-3d;
   transform-origin: 50% 50% -50vw;
-  transform: rotateY(0deg);
+  transform: rotateY(-90deg);
 }
 
 .section{
@@ -129,7 +129,16 @@ nav{
   backface-visibility: hidden;
 }
 
-.home{
+.section:nth-child(even){
+  background: var(--second-bg-color);
+}
+
+.section.about{
+  transform: translateX(50vw) translateZ(-50vw) rotateY(90deg);
+}
+
+.home,
+.about{
   display: flex;
   align-items: center;
   gap: 5rem;
@@ -214,4 +223,9 @@ color: var(--bg-color);
 
 .img-box.home-img:hover{
   box-shadow: 0 0 8rem var(--main-color);
+}
+
+.img-box.about-img{
+  background: transparent;
+  box-shadow: 0 0 2rem var(--main-color);
 }
