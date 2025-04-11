@@ -1,112 +1,166 @@
-const resumeList = document.querySelectorAll(".resume-list");
-const resumeBoxs = document.querySelectorAll(".resume-box");
-const progressLines = document.querySelectorAll(".progress-line span");
+// Selectors
+const resumeItems = document.querySelectorAll(".resume-list");
+const resumeDetails = document.querySelectorAll(".resume-box");
 const skillTextSpans = document.querySelectorAll(
   ".technical-bars .bar .info span"
 );
+const iconElements = document.querySelectorAll(".icon");
+const skillProgressRings = document.querySelectorAll(".progress-ring");
 
-// Define skill levels in percentage
+// Skill levels
 const skillLevels = {
-  HTML: "100%",
-  CSS: "80%",
-  JavaScript: "90%",
-  Python: "22%",
-  React: "85%",
-  Java: "60%",
+  HTML: 100,
+  CSS: 80,
+  JavaScript: 90,
+  Python: 22,
+  React: 85,
+  Java: 60,
 };
 
-const interpolateColor = (value) => {
-  const red = Math.max(255 - value * 2.55, 0);
-  const green = Math.min(value * 2.55, 255);
-  return `rgb(${red}, ${green}, 0)`;
-};
+// Variables
+let currentAnimationFrame;
+let animationInProgress = false;
 
-// Function to animate the percentage counter
-const animateCounter = (element, targetValue) => {
-  let currentValue = 0;
-  const duration = 2000; // Total duration for the animation
-  const increment = Math.ceil(targetValue / (duration / 100)); // Increment value
+// Resume section handling
+resumeItems.forEach((item, index) => {
+  item.addEventListener("click", () => handleResumeClick(index, item));
+});
 
-  const interval = setInterval(() => {
-    currentValue += increment;
-    if (currentValue > targetValue) {
-      currentValue = targetValue; // Ensure it does not exceed the target value
-    }
-    element.textContent = currentValue + "%"; // Update the display
-    if (currentValue === targetValue) {
-      clearInterval(interval); // Stop the counter when the target is reached
-    }
-  }, 100); // Update every 100 ms
-};
+function handleResumeClick(index, listElement) {
+  if (animationInProgress) return; // Prevent switching if animation is in progress
 
-// Resume section functionality
-resumeList.forEach((list, indx) => {
-  list.addEventListener("click", () => {
-    // Remove active class from current tab and add to clicked tab
-    const activeList = document.querySelector(".resume-list.active");
-    if (activeList) {
-      activeList.classList.remove("active");
-    }
-    list.classList.add("active");
+  setActiveClass(resumeItems, listElement);
+  setActiveClass(resumeDetails, resumeDetails[index]);
+  resetAllIconsAndProgress();
 
-    // Hide current box and show the selected one
-    const activeBox = document.querySelector(".resume-box.active");
-    if (activeBox) {
-      activeBox.classList.remove("active");
-    }
-    resumeBoxs[indx].classList.add("active");
+  if (listElement.textContent.trim() === "Skills") {
+    triggerTextAnimation(skillTextSpans);
+  } else {
+    resetTextAnimation(skillTextSpans);
+  }
+}
 
-    // Trigger animation for text and progress lines if the Skills tab is clicked
-    if (list.textContent.trim() === "Skills") {
-      // Reset and trigger text animation
-      skillTextSpans.forEach((span) => {
-        span.style.opacity = "0"; // Set opacity to 0 to reset animation
-        span.style.animation = "none"; // Remove current animation
+function setActiveClass(elements, activeElement) {
+  elements.forEach((item) => item.classList.remove("active"));
+  activeElement.classList.add("active");
+}
 
-        // Force reflow
-        span.offsetHeight;
+function triggerTextAnimation(elements) {
+  elements.forEach((span) => {
+    span.style.opacity = "0";
+    span.style.animation = "none";
+    span.offsetHeight; // Force reflow
+    span.style.animation = "showText 0.5s 0.5s linear forwards";
+  });
+}
 
-        // Reapply animation
-        span.style.animation = "showText 0.5s 0.5s linear forwards"; // Re-trigger animation
-      });
+function resetTextAnimation(elements) {
+  elements.forEach((span) => {
+    span.style.opacity = "0";
+    span.style.animation = "none";
+  });
+}
 
-      // Reset progress lines and animate
-      progressLines.forEach((line) => {
-        const skillName =
-          line.parentElement.previousElementSibling.textContent.trim(); // Get skill name
-        const targetValue = parseInt(skillLevels[skillName]); // Get skill percentage as integer
-        const percentageDisplay = line.previousElementSibling; // Assuming it's the previous sibling
-
-        // Reset the width and color initially
-        line.style.width = "0%"; // Set to 0 for animation
-        line.style.backgroundColor = "rgb(255, 0, 0)"; // Start from red
-
-        // Force a reflow to ensure the browser recognizes the change
-        line.offsetHeight;
-
-        // Now set the animated properties
-        line.style.transition = "width 2s ease, background-color 2s ease"; // Slow transitions
-        line.style.width = skillLevels[skillName]; // Animate to skill level
-        line.style.backgroundColor = interpolateColor(targetValue); // Set color based on skill level
-
-        // Reset percentage display and start the counter animation
-        percentageDisplay.textContent = "0%"; // Start at 0%
-        animateCounter(percentageDisplay, targetValue); // Animate percentage from 0 to targetValue
-      });
-    } else {
-      // Reset progress styles and text opacity when switching away from Skills
-      skillTextSpans.forEach((span) => {
-        span.style.opacity = "0"; // Reset opacity
-        span.style.animation = "none"; // Remove the animation
-      });
-
-      progressLines.forEach((line) => {
-        line.style.width = "0%"; // Reset to 0% when switching away
-        line.style.transition = "none"; // Instant change to 0%
-
-        const percentageDisplay = line.previousElementSibling; // Assuming percentage is the previous sibling
-        percentageDisplay.textContent = "0%"; // Reset percentage display back to 0%
-      });
+// Skill progress animations
+iconElements.forEach((icon) => {
+  icon.addEventListener("click", () => {
+    if (!animationInProgress) {
+      resetAllIconsAndProgress(); // Reset before starting a new animation
+      handleIconClick(icon);
     }
   });
 });
+
+function handleIconClick(icon) {
+  const skill = icon.getAttribute("data-skill");
+  const targetValue = skillLevels[skill]; // Get the target percentage directly
+
+  setActiveClass(iconElements, icon); // Set active class on the clicked icon
+
+  // Show the progress ring related to the clicked icon
+  const progressRing = icon.querySelector(".progress-ring");
+  progressRing.style.display = "block"; // Show progress ring
+  const progressCircle = progressRing.querySelector(".progress-ring__circle");
+  const percentageTextDiv = icon.querySelector(".percentage"); // Get the percentage text div
+
+  animationInProgress = true; // Lock interactions while animation is in progress
+  percentageTextDiv.textContent = "0%"; // Reset initial percentage text
+  percentageTextDiv.style.display = "block"; // Show the percentage div
+  animateSkillProgress(progressCircle, targetValue, percentageTextDiv); // Start the animation
+}
+
+function animateSkillProgress(circle, targetValue, percentageTextDiv) {
+  const radius = circle.r.baseVal.value;
+  const circumference = radius * 2 * Math.PI;
+  circle.style.strokeDasharray = `${circumference} ${circumference}`;
+  circle.style.strokeDashoffset = circumference; // Start offset
+
+  const duration = 2000; // Total duration for the animation
+  const startTime = performance.now();
+
+  function animate() {
+    const currentTime = performance.now();
+    const progress = Math.min((currentTime - startTime) / duration, 1); // Normalize progress from 0 to 1
+    const offset =
+      circumference - ((progress * targetValue) / 100) * circumference; // Adjust for percentage
+    circle.style.strokeDashoffset = offset;
+
+    // Update stroke color based on progress
+    const color = interpolateColor(progress * 100, [255, 0, 0], [0, 255, 0]); // Interpolate color from red to green
+    circle.style.stroke = color;
+
+    // Calculate and update the percentage text during animation
+    const interimPercentage = Math.round(progress * targetValue); // Calculate interim percentage
+    percentageTextDiv.textContent = `${interimPercentage}%`; // Update the text content
+
+    if (progress < 1) {
+      currentAnimationFrame = requestAnimationFrame(animate); // Continue animation
+    } else {
+      animationInProgress = false; // Unlock interactions after animation finishes
+    }
+  }
+
+  animate(); // Start the animation
+}
+
+function interpolateColor(progress, startColor, endColor) {
+  return (
+    startColor
+      .map((start, i) =>
+        Math.round(start + (endColor[i] - start) * (progress / 100))
+      )
+      .reduce((accum, color) => `${accum}${color},`, "rgb(")
+      .slice(0, -1) + ")"
+  );
+}
+
+function cancelOngoingAnimations() {
+  if (currentAnimationFrame) {
+    cancelAnimationFrame(currentAnimationFrame);
+  }
+}
+
+function resetAllIconsAndProgress() {
+  cancelOngoingAnimations();
+  animationInProgress = false; // Ensure flag is reset
+
+  // Reset icons and progress rings
+  iconElements.forEach((icon) => {
+    icon.classList.remove("active");
+    icon.style.display = "block"; // Ensure hidden icons are visible again
+    const progressRing = icon.querySelector(".progress-ring");
+    if (progressRing) {
+      progressRing.style.display = "none"; // Hide progress ring when resetting
+      const circle = progressRing.querySelector(".progress-ring__circle");
+      circle.style.strokeDashoffset = circle.r.baseVal.value * 2 * Math.PI; // Reset to start position
+      circle.style.stroke = `rgb(255, 0, 0)`; // Reset to start color
+    }
+
+    // Reset percentage display
+    const percentageTextDiv = icon.querySelector(".percentage");
+    if (percentageTextDiv) {
+      percentageTextDiv.textContent = "0%"; // Reset text
+      percentageTextDiv.style.display = "none"; // Hide percentage text
+    }
+  });
+}
