@@ -398,7 +398,7 @@ color: var(--bg-color);
 
 .icon {
   margin: 0 10px;
-  transition: transform 0.3s ease;
+  transition: transform 0.9s ease;
   cursor: pointer;
 }
 
@@ -436,4 +436,32 @@ color: var(--bg-color);
   display: block;
   text-align: center;
   font-size: 0.8rem;
+}
+
+.icon-container {
+  display: flex; 
+  flex-direction: row;
+  overflow-x: auto; 
+  gap: 10px; 
+}
+
+.arrow {
+  background: var(--bg-color);
+  color: var(--white-color);
+  border: none;
+  cursor: pointer;
+  font-size: 5rem; 
+  position: relative; 
+  z-index: 1; 
+  padding: 2rem; 
+  height: 4rem; 
+  width: 4rem; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  transition: background-color 0.3s;
+}
+
+.arrow:hover {
+  background-color: var(--main-color) 
 }
