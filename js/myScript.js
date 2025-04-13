@@ -26,7 +26,7 @@ const skillLevels = {
   CSS: 80,
   JavaScript: 90,
   Python: 22,
-  React: 85,
+  React: 75,
   Java: 60,
   Bootstrap: 70,
 };
@@ -102,6 +102,7 @@ function handleIconClick(icon) {
   document.getElementsByClassName("description")[0].style.display = "none";
   document.getElementsByClassName("description")[1].style.display = "none";
   document.getElementsByClassName("description")[2].style.display = "none";
+  document.getElementsByClassName("description")[3].style.display = "none";
   animateSkillProgress(progressCircle, targetValue, percentageTextDiv); // Start the animation
 }
 
