@@ -103,6 +103,7 @@ function handleIconClick(icon) {
   document.getElementsByClassName("description")[1].style.display = "none";
   document.getElementsByClassName("description")[2].style.display = "none";
   document.getElementsByClassName("description")[3].style.display = "none";
+  document.getElementsByClassName("description")[4].style.display = "none";
   animateSkillProgress(progressCircle, targetValue, percentageTextDiv); // Start the animation
 }
 
