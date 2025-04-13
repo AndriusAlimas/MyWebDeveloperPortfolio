@@ -6,7 +6,7 @@ const skillTextSpans = document.querySelectorAll(
 );
 const iconElements = document.querySelectorAll(".icon");
 const skillProgressRings = document.querySelectorAll(".progress-ring");
-
+const start = true;
 const iconData = [
   { order: 1, element: iconElements[0], active: false },
   { order: 2, element: iconElements[1], active: false },
@@ -14,7 +14,7 @@ const iconData = [
   { order: 4, element: iconElements[3], active: false },
   { order: 5, element: iconElements[4], active: false },
   { order: 6, element: iconElements[5], active: false },
-  // { order: 7, element: iconElements[6], active: false },
+  { order: 7, element: iconElements[6], active: false },
   // { order: 8, element: iconElements[7], active: false },
   // { order: 9, element: iconElements[8], active: false },
   // { order: 10, element: iconElements[9], active: false },
@@ -28,6 +28,7 @@ const skillLevels = {
   Python: 22,
   React: 85,
   Java: 60,
+  Bootstrap: 70,
 };
 
 // Variables
@@ -62,6 +63,17 @@ function setActiveClass(elements, activeElement) {
 
 // Skill progress animations
 iconElements.forEach((icon, index) => {
+  const description = icon.querySelector(".description"); // Get the description text
+
+  // Add click event listener to the icon
+  icon.addEventListener("click", () => {
+    // Toggle description visibility
+    if (description.style.display === "block") {
+      description.style.display = "none"; // Hide the description if visible
+    } else {
+      description.style.display = "block"; // Show the description if hidden
+    }
+  });
   icon.addEventListener("click", () => {
     if (!animationInProgress && !icon.classList.contains("active")) {
       currentIconIndex = index;
@@ -87,6 +99,8 @@ function handleIconClick(icon) {
   animationInProgress = true; // Lock interactions while animation is in progress
   percentageTextDiv.textContent = "0%"; // Reset initial percentage text
   percentageTextDiv.style.display = "block"; // Show the percentage div
+  document.getElementsByClassName("description")[0].style.display = "none";
+
   animateSkillProgress(progressCircle, targetValue, percentageTextDiv); // Start the animation
 }
 
