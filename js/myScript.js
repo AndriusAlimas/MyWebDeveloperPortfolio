@@ -100,7 +100,7 @@ function handleIconClick(icon) {
   percentageTextDiv.textContent = "0%"; // Reset initial percentage text
   percentageTextDiv.style.display = "block"; // Show the percentage div
   document.getElementsByClassName("description")[0].style.display = "none";
-
+  document.getElementsByClassName("description")[1].style.display = "none";
   animateSkillProgress(progressCircle, targetValue, percentageTextDiv); // Start the animation
 }
 

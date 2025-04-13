@@ -486,7 +486,7 @@ color: var(--bg-color);
   transform: translate(-50%, 0); 
   // background-color: var(--bg-color);
   color: var(--white-color); /* White text */
-  width: 22rem; /* Maximum width for the description */
+  width: 26rem; /* Maximum width for the description */
   border-radius: 3px; /* Slightly rounded corners */
   padding: 5px; /* Optional: add padding for better spacing */
   z-index: 10; /* Ensure it appears above other elements */
@@ -515,6 +515,7 @@ font-size: 0.5rem;
 .description strong, .moreInfo strong{
   font-size: 0.7rem;
   font-weight: 600;
+  color: var(--main-color);
 }
 
 .description p, .moreInfo p {
