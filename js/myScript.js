@@ -97,14 +97,16 @@ function handleIconClick(icon) {
   const percentageTextDiv = icon.querySelector(".percentage"); // Reference the text div
 
   animationInProgress = true; // Lock interactions while animation is in progress
-  percentageTextDiv.textContent = "0%"; // Reset initial percentage text
+  percentageTextDiv.textContent = "0%";
   percentageTextDiv.style.display = "block"; // Show the percentage div
-  document.getElementsByClassName("description")[0].style.display = "none";
-  document.getElementsByClassName("description")[1].style.display = "none";
-  document.getElementsByClassName("description")[2].style.display = "none";
-  document.getElementsByClassName("description")[3].style.display = "none";
-  document.getElementsByClassName("description")[4].style.display = "none";
-  animateSkillProgress(progressCircle, targetValue, percentageTextDiv); // Start the animation
+
+  const descriptions = document.getElementsByClassName("description");
+
+  // Loop through all descriptions and hide each one
+  for (let i = 0; i < descriptions.length; i++) {
+    descriptions[i].style.display = "none";
+  }
+  animateSkillProgress(progressCircle, targetValue, percentageTextDiv);
 }
 
 function animateSkillProgress(circle, targetValue, percentageTextDiv) {
