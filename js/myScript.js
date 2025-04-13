@@ -101,6 +101,7 @@ function handleIconClick(icon) {
   percentageTextDiv.style.display = "block"; // Show the percentage div
   document.getElementsByClassName("description")[0].style.display = "none";
   document.getElementsByClassName("description")[1].style.display = "none";
+  document.getElementsByClassName("description")[2].style.display = "none";
   animateSkillProgress(progressCircle, targetValue, percentageTextDiv); // Start the animation
 }
 
