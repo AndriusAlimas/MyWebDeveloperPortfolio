@@ -441,7 +441,7 @@ color: var(--bg-color);
 .icon-container {
   display: flex; 
   flex-direction: row;
-  overflow-x: auto; 
+  overflow: hidden; 
   gap: 10px; 
 }
 
@@ -450,10 +450,9 @@ color: var(--bg-color);
   color: var(--white-color);
   border: none;
   cursor: pointer;
-  font-size: 5rem; 
+  font-size: 3.5rem; 
   position: relative; 
   z-index: 1; 
-  padding: 2rem; 
   height: 4rem; 
   width: 4rem; 
   display: flex; 
@@ -464,4 +463,8 @@ color: var(--bg-color);
 
 .arrow:hover {
   background-color: var(--main-color) 
+}
+.arrow:disabled {
+  opacity: 0.5; /* Make the button look disabled */
+  cursor: not-allowed; /* Change cursor to indicate a disabled button */
 }
