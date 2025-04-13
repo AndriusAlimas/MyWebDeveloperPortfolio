@@ -15,7 +15,7 @@ const iconData = [
   { order: 5, element: iconElements[4], active: false },
   { order: 6, element: iconElements[5], active: false },
   { order: 7, element: iconElements[6], active: false },
-  // { order: 8, element: iconElements[7], active: false },
+  { order: 8, element: iconElements[7], active: false },
   // { order: 9, element: iconElements[8], active: false },
   // { order: 10, element: iconElements[9], active: false },
 ];
@@ -29,6 +29,7 @@ const skillLevels = {
   React: 75,
   Java: 60,
   Bootstrap: 70,
+  Git: 80,
 };
 
 // Variables

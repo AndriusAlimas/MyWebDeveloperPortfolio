@@ -535,3 +535,7 @@ div[data-skill="JavaScript"].icon.active div.percentage{
  position: relative;
  bottom: 0.65rem;
  }
+
+ div[data-skill="Git"].icon.active div.moreInfo{
+ top: -42%;
+  }
