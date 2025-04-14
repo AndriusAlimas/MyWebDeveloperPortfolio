@@ -17,7 +17,7 @@ const iconData = [
   { order: 7, element: iconElements[6], active: false },
   { order: 8, element: iconElements[7], active: false },
   { order: 9, element: iconElements[8], active: false },
-  // { order: 10, element: iconElements[9], active: false },
+  { order: 10, element: iconElements[9], active: false },
 ];
 
 // Skill levels
@@ -31,6 +31,7 @@ const skillLevels = {
   Bootstrap: 70,
   Git: 80,
   jQuery: 82,
+  node_js: 72,
 };
 
 // Variables

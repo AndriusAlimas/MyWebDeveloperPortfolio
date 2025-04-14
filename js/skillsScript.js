@@ -547,6 +547,15 @@ const skillDescriptions = {
                         </li>
                       </ul>
     `,
+  node_js: `
+    <ul>
+      <li><strong>Server-Side JavaScript:</strong> Use Node.js to build server-side applications with JavaScript.</li>
+      <li><strong>Asynchronous Programming:</strong> Efficiently handle asynchronous operations using Node’s non-blocking I/O model.</li>
+      <li><strong>Node Package Manager (NPM):</strong> Utilize NPM to manage project dependencies and scripts effectively.</li>
+      <li><strong>API Development:</strong> Create RESTful services and APIs using frameworks like Express.</li>
+      <li><strong>File System Management:</strong> Perform file operations such as reading and writing using Node’s built-in fs module.</li>
+    </ul>
+  `,
 };
 const moreInfo = {
   html: `
@@ -639,6 +648,12 @@ const moreInfo = {
                         exploring more advanced features. Press an icon to learn
                         more.
                       </p>`,
+  node_js: `
+                      <strong>Node.js: JavaScript Runtime</strong><br />
+                      <p>
+                        A proficiency level of 72% in Node.js indicates a solid understanding of building scalable network applications. This proficiency includes effectively managing asynchronous operations, understanding Node’s ecosystem, and creating robust server-side logic. Press an icon to learn more.
+                      </p>
+                    `,
 };
 // Common SVG and structure template without image or specific content
 const commonProgressRingTemplate = `
@@ -662,6 +677,7 @@ const imagePaths = {
   bootstrap: "./img/bootstrap.png",
   git: "./img/git.png",
   jquery: "./img/jQuery_icon.png",
+  node_js: "./img/node_js.svg",
 };
 
 const progressRing = {
