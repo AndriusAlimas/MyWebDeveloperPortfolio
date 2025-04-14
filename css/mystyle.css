@@ -117,7 +117,7 @@ nav{
   height: 100%;
   transform-style: preserve-3d;
   transform-origin: 50% 50% -50vw;
-  transform: rotateY(-90deg);
+  transform: rotateY(-180deg);
 }
 
 .section{
@@ -135,6 +135,11 @@ nav{
 
 .section.about{
   transform: translateX(50vw) translateZ(-50vw) rotateY(90deg);
+}
+
+.section.resume{
+  transform: translateZ(-100vw) rotateY(-180deg);
+  transform-origin: 50%;
 }
 
 .home,
@@ -252,3 +257,292 @@ color: var(--bg-color);
 .about-info .btn{
   padding: 1.2rem 4rem;
 }
+
+.resume{
+  padding-top: 2rem;
+  padding-bottom: 28rem;
+}
+
+.tab-box{
+  display: flex;
+  width: 100%;
+  height: 5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tab-list{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  border-bottom: .3rem solid var(--tab-list-color);
+  color: var(--tab-list-color);
+  transition: .5s;
+}
+
+.tab-list h3{
+  font-size: 2.5rem;
+}
+
+.tab-list.resume-list.active{
+  border-color: var(--main-color);
+  color: var(--main-color);
+}
+
+.resume-list:nth-child(2){
+  justify-content: center;
+}
+
+.resume-list:nth-child(3){
+  justify-content: flex-end;
+}
+
+.tab-wrapper{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.tab-grid{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+  gap: 2rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(.8);
+}
+
+.tab-grid.resume-box.active{
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+  transition: .5s;
+}
+
+.tab-item{
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  background: var(--third-bg-color);
+  border-radius: .8rem;
+  padding: 2rem;
+}
+
+.tab-item h4{
+  font-size: 2.3rem;
+}
+
+.resume-item h4:nth-child(1),
+.resume-item h4:nth-child(3){
+  font-size: 1.7rem;
+  color: var(--main-color);
+  font-weight: 400;
+}
+
+.resume-item h4:nth-child(3){
+  position: relative;
+  color: var(--white-color);
+  margin-left: 2rem;
+}
+
+.resume-item h4:nth-child(3)::before{
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top:50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  background: var(--main-color);
+  border-radius: 50%;
+}
+
+.tab-item p{
+  margin-top: 1rem;
+}
+
+.heading{
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 0.625rem;
+  text-decoration-thickness: 0.3125rem;
+  margin-bottom: 3.125rem; 
+}
+.bar {
+  font-size: 2.8rem; 
+}
+
+.technical-bars .bar {
+  margin: 2rem 0; 
+}
+
+.technical-bars .bar .info span{
+  font-size: 2rem;
+  font-weight: 500;
+  animation: showText 0.5s 1s linear forwards;
+  opacity: 0;
+}
+
+
+.icon-carousel {
+  display: flex;
+  justify-content: center; /* Center icons */
+  padding: 10px;
+}
+
+.icon {
+  margin: 0 10px;
+  height: fit-content;
+  transition: transform 0.9s ease;
+  cursor: pointer;
+}
+
+.icon img {
+  width: 4rem; 
+  height: 4rem;
+}
+
+.icon.active {
+  position: absolute; 
+  left: 32%; 
+  top: 57%; 
+  transform: translate(-50%, -50%) scale(3.1); 
+  z-index: 1; 
+}
+
+.progress-ring {
+  position: absolute;
+  top: 40%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+}
+
+.progress-ring__circle {
+  transition: stroke-dashoffset 0.35s;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.percentage{
+  display: none;
+}
+
+.icon.active .percentage{ 
+  display: block;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.icon-container {
+  display: flex; 
+  flex-direction: row;
+  overflow: hidden; 
+  gap: 10px; 
+}
+
+.arrow {
+  background: var(--bg-color);
+  color: var(--white-color);
+  border: none;
+  cursor: pointer;
+  font-size: 3.5rem; 
+  position: relative; 
+  z-index: 1; 
+  height: 4rem; 
+  width: 4rem; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  transition: background-color 0.3s;
+}
+
+.arrow:hover {
+  background-color: var(--main-color) 
+}
+.arrow:disabled {
+  opacity: 0.5; /* Make the button look disabled */
+  cursor: not-allowed; /* Change cursor to indicate a disabled button */
+}
+
+.icon svg {
+  pointer-events: none; /* Prevent pointer events on the SVG */
+}
+
+.icon.active:hover img {
+  transform: scale(1.05); /* Scale up the image slightly on hover */
+}
+
+.description {
+  display: none; 
+  position: absolute; 
+  top: 135%; 
+  left: 155%; 
+  transform: translate(-50%, 0); 
+  // background-color: var(--bg-color);
+  color: var(--white-color); /* White text */
+  width: 26rem; /* Maximum width for the description */
+  border-radius: 3px; /* Slightly rounded corners */
+  padding: 5px; /* Optional: add padding for better spacing */
+  z-index: 10; /* Ensure it appears above other elements */
+  display: flex;
+flex-direction: column;
+background: var(--third-bg-color);
+border-radius: .8rem;
+padding: 1rem;
+font-size: 0.5rem;
+}
+
+.moreInfo {
+  position: absolute; 
+  float: right;
+  top: -22%; 
+  left: 300%; 
+  transform: translate(-50%, 0); 
+  background-color: var(--bg-color);
+  color: #fff; 
+  width: 12rem; 
+  border-radius: 3px; 
+  padding: 5px; 
+
+}
+
+.description strong, .moreInfo strong{
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+.description p, .moreInfo p {
+  font-size: 0.5rem; 
+  margin: 0; 
+  line-height: 1.2; 
+}
+.description li{
+  line-height: 1.3rem; 
+}
+
+div[data-skill="JavaScript"].icon.active img{
+ margin-top: 1rem;
+}
+
+div[data-skill="JavaScript"].icon.active div.percentage{
+ position: relative;
+ bottom: 0.65rem;
+ }
+
+ div[data-skill="Git"].icon.active div.moreInfo{
+ top: -42%;
+  }
+
+div[data-skill="mysql"].icon.active div.moreInfo{
+    top: -46%;
+     }
+div[data-skill="netlify"].icon.active div.moreInfo{
+    top: -40%;
+      }     
