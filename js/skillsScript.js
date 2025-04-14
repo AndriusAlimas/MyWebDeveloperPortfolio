@@ -566,6 +566,17 @@ const skillDescriptions = {
       <li><strong>File Handling:</strong> Basic capability to open, read, write, and close files using PHP’s built-in functions, ensuring the ability to manage file operations.</li>
       <li><strong>Understanding of PHP Sessions and Cookies:</strong> Data handling using PHP sessions and cookies to store user information persistently across pages.</li>
     </ul>`,
+  mysql: `
+    <ul>
+      <li><strong>Basic Syntax:</strong> Understand the basic syntax of MySQL queries, including SELECT, INSERT, UPDATE, and DELETE statements, allowing you to interact with databases.</li>
+      <li><strong>Database and Table Creation:</strong> Ability to create databases and tables, defining appropriate data types and constraints.</li>
+      <li><strong>Data Retrieval:</strong> Familiar with using various clauses (WHERE, ORDER BY, LIMIT) to filter and sort data effectively when querying tables.</li>
+      <li><strong>Joins:</strong> Basic understanding of how to join tables using INNER JOIN and LEFT JOIN to retrieve related data across multiple tables.</li>
+      <li><strong>Aggregate Functions:</strong> Knowledge of using aggregate functions like COUNT, SUM, AVG, MAX, and MIN to perform calculations on data sets.</li>
+      <li><strong>Basic Query Optimization:</strong> Awareness of how to use indexes to improve query performance and understand the importance of writing efficient queries.</li>
+      <li><strong>Basic Security Practices:</strong> Understanding the importance of using prepared statements to prevent SQL injection attacks and ensure data security.</li>
+    </ul>
+  `,
 };
 const moreInfo = {
   html: `
@@ -670,6 +681,12 @@ const moreInfo = {
       A proficiency level of 30% in PHP indicates a basic understanding of server-side scripting. With this foundational knowledge, I can write simple scripts and interact with databases to create dynamic web applications. I am working on understanding how to handle form submissions, manage sessions, and perform basic CRUD operations with MySQL. Press an icon to learn more.
     </p>
   `,
+  mysql: `
+  <strong>MySQL: Relational Database Management System</strong><br />
+  <p>
+    A proficiency level of 33% in MySQL signifies that I have a budding understanding of relational database concepts. I am grasping the basics of creating and managing databases, performing CRUD operations, and writing simple queries to extract and manipulate data. I continually learn about joins, aggregating data, and enhancing my skills in data handling. Press an icon to learn more.
+  </p>
+`,
 };
 // Common SVG and structure template without image or specific content
 const commonProgressRingTemplate = `
@@ -695,6 +712,7 @@ const imagePaths = {
   jquery: "./img/jQuery_icon.png",
   node_js: "./img/node_js.svg",
   php: "./img/php.png",
+  mysql: "./img/mysql.png",
 };
 
 const progressRing = {
