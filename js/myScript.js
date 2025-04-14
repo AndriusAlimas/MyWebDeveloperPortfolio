@@ -7,20 +7,12 @@ const skillTextSpans = document.querySelectorAll(
 const iconElements = document.querySelectorAll(".icon");
 const skillProgressRings = document.querySelectorAll(".progress-ring");
 const start = true;
-const iconData = [
-  { order: 1, element: iconElements[0], active: false },
-  { order: 2, element: iconElements[1], active: false },
-  { order: 3, element: iconElements[2], active: false },
-  { order: 4, element: iconElements[3], active: false },
-  { order: 5, element: iconElements[4], active: false },
-  { order: 6, element: iconElements[5], active: false },
-  { order: 7, element: iconElements[6], active: false },
-  { order: 8, element: iconElements[7], active: false },
-  { order: 9, element: iconElements[8], active: false },
-  { order: 10, element: iconElements[9], active: false },
-  { order: 11, element: iconElements[10], active: false },
-  { order: 12, element: iconElements[11], active: false },
-];
+// Create iconData dynamically based on iconElements
+const iconData = Array.from(iconElements).map((element, index) => ({
+  order: index + 1, // Set order starting from 1
+  element: element, // Reference to the current element
+  active: false, // Initial active state set to false
+}));
 
 // Skill levels
 const skillLevels = {
@@ -36,6 +28,7 @@ const skillLevels = {
   node_js: 72,
   php: 30,
   mysql: 33,
+  netlify: 50,
 };
 
 // Variables
@@ -210,18 +203,18 @@ function updateIconVisibility() {
     } else if (activeIndex !== -1) {
       // If there’s an active index defined, show 4 icons centered around it
       const distance = Math.abs(icon.order - activeIconData.order);
-      icon.element.style.display = distance <= 2 ? "block" : "none";
+      icon.element.style.display = distance <= 3 ? "block" : "none";
     } else {
       // If there is no active icon, show 4 icons based on the currentIndex
       icon.element.style.display =
-        icon.order >= currentIndex + 1 && icon.order <= currentIndex + 4
+        icon.order >= currentIndex + 1 && icon.order <= currentIndex + 5
           ? "block"
           : "none";
     }
   });
   // Update arrow visibility and disable state
   const canMoveLeft = currentIndex > 0;
-  const canMoveRight = currentIndex + 4 < iconData.length;
+  const canMoveRight = currentIndex + 5 < iconData.length;
 
   leftArrow.style.opacity = canMoveLeft ? "1" : "0.5";
   leftArrow.style.cursor = canMoveLeft ? "pointer" : "not-allowed";

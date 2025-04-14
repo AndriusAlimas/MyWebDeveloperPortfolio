@@ -577,6 +577,16 @@ const skillDescriptions = {
       <li><strong>Basic Security Practices:</strong> Understanding the importance of using prepared statements to prevent SQL injection attacks and ensure data security.</li>
     </ul>
   `,
+  netlify: `
+    <ul>
+      <li><strong>Continuous Deployment:</strong> I am familiar with the process of continuous deployment using Netlify, allowing me to automatically deploy changes to my projects whenever I push updates to my repository.</li>
+      <li><strong>Hosting Static Sites:</strong> I can use Netlify to host static websites efficiently, taking advantage of its global Content Delivery Network (CDN) to ensure fast load times for users worldwide.</li>
+      <li><strong>Integrating Serverless Functions:</strong> I have basic experience in implementing serverless functions with Netlify Functions, enabling me to run backend code without managing a dedicated server.</li>
+      <li><strong>Using Forms:</strong> I understand how to work with Netlify’s form handling features, allowing me to capture form submissions seamlessly without needing additional backend code.</li>
+      <li><strong>Custom Redirects and Rewrites:</strong> I can set up redirects and rewrites on Netlify to improve user experience and maintain organized site structure.</li>
+      <li><strong>Site Preview and Branch Deploys:</strong> I am starting to utilize branch deploys to preview changes associated with different branches of my project, which aids in collaborative workflows.</li>
+    </ul>
+  `,
 };
 const moreInfo = {
   html: `
@@ -687,6 +697,12 @@ const moreInfo = {
     A proficiency level of 33% in MySQL signifies that I have a budding understanding of relational database concepts. I am grasping the basics of creating and managing databases, performing CRUD operations, and writing simple queries to extract and manipulate data. I continually learn about joins, aggregating data, and enhancing my skills in data handling. Press an icon to learn more.
   </p>
 `,
+  netlify: `
+<strong>Netlify</strong><br />
+<p>
+  A proficiency level of 50% in Netlify indicates that I have a solid understanding of its basic features for deploying and hosting static websites. With this foundational knowledge, I can efficiently set up projects, handle form submissions, and implement serverless functions. I aim to deepen my skills by exploring more advanced functionalities like integrations and continuous deployment strategies. Press an icon to learn more.
+</p>
+`,
 };
 // Common SVG and structure template without image or specific content
 const commonProgressRingTemplate = `
@@ -713,29 +729,9 @@ const imagePaths = {
   node_js: "./img/node_js.svg",
   php: "./img/php.png",
   mysql: "./img/mysql.png",
+  netlify: "./img/netlify.png",
 };
 
-const progressRing = {
-  html: `    <svg
-                      class="progress-ring"
-                      width="120"
-                      height="120"
-                      style="display: none"
-                    >
-                      <circle
-                        class="progress-ring__circle"
-                        stroke-width="2"
-                        fill="transparent"
-                        r="34"
-                        cx="58"
-                        cy="58"
-                      />
-                    </svg>
-                    <img src="./img/html5_icon.png" alt="HTML Icon" />
-                    <div class="percentage"></div>
-                    <div class="description"></div>
-                    <div class="moreInfo"></div>`,
-};
 /// Function to load skill descriptions into the appropriate elements
 function loadSkillDescriptions() {
   const skills = document.querySelectorAll(".icon"); // Select all skill icons

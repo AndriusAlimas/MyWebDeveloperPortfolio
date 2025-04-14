@@ -539,6 +539,10 @@ div[data-skill="JavaScript"].icon.active div.percentage{
  div[data-skill="Git"].icon.active div.moreInfo{
  top: -42%;
   }
-  div[data-skill="mysql"].icon.active div.moreInfo{
+
+div[data-skill="mysql"].icon.active div.moreInfo{
     top: -46%;
      }
+div[data-skill="netlify"].icon.active div.moreInfo{
+    top: -40%;
+      }     
