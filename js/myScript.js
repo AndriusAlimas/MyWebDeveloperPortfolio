@@ -1,4 +1,3 @@
-// Selectors
 const resumeItems = document.querySelectorAll(".resume-list");
 const resumeDetails = document.querySelectorAll(".resume-box");
 const skillTextSpans = document.querySelectorAll(
@@ -6,12 +5,14 @@ const skillTextSpans = document.querySelectorAll(
 );
 const iconElements = document.querySelectorAll(".icon");
 const skillProgressRings = document.querySelectorAll(".progress-ring");
+
 const start = true;
+
 // Create iconData dynamically based on iconElements
 const iconData = Array.from(iconElements).map((element, index) => ({
-  order: index + 1, // Set order starting from 1
-  element: element, // Reference to the current element
-  active: false, // Initial active state set to false
+  order: index + 1,
+  element: element,
+  active: false,
 }));
 
 // Skill levels
@@ -31,7 +32,6 @@ const skillLevels = {
   netlify: 50,
 };
 
-// Variables
 let currentAnimationFrame;
 let animationInProgress = false;
 let currentIconIndex = 0; // Track which icon is currently being viewed
@@ -85,15 +85,15 @@ iconElements.forEach((icon, index) => {
 });
 function handleIconClick(icon) {
   const skill = icon.getAttribute("data-skill");
-  const targetValue = skillLevels[skill]; // Get the target percentage directly
+  const targetValue = skillLevels[skill];
 
-  setActiveClass(iconElements, icon); // Set active class on the clicked icon
+  setActiveClass(iconElements, icon);
 
   // Show and animate progress ring
   const progressRing = icon.querySelector(".progress-ring");
   progressRing.style.display = "block"; // Show the progress ring
   const progressCircle = progressRing.querySelector(".progress-ring__circle");
-  const percentageTextDiv = icon.querySelector(".percentage"); // Reference the text div
+  const percentageTextDiv = icon.querySelector(".percentage");
 
   animationInProgress = true; // Lock interactions while animation is in progress
   percentageTextDiv.textContent = "0%";
@@ -101,7 +101,6 @@ function handleIconClick(icon) {
 
   const descriptions = document.getElementsByClassName("description");
 
-  // Loop through all descriptions and hide each one
   for (let i = 0; i < descriptions.length; i++) {
     descriptions[i].style.display = "none";
   }
@@ -112,17 +111,17 @@ function animateSkillProgress(circle, targetValue, percentageTextDiv) {
   const radius = circle.r.baseVal.value;
   const circumference = radius * 2 * Math.PI;
   circle.style.strokeDasharray = `${circumference} ${circumference}`;
-  circle.style.strokeDashoffset = circumference; // Start offset
+  circle.style.strokeDashoffset = circumference;
 
-  const duration = 2000; // Total animation duration
+  const duration = 2000;
   const startTime = performance.now();
 
   function animate() {
     const currentTime = performance.now();
     const progress =
       Math.min((currentTime - startTime) / duration, 1) * targetValue;
-    const offset = circumference - (progress / 100) * circumference; // Adjust for percentage
-    circle.style.strokeDashoffset = offset; // Update the stroke dash offset
+    const offset = circumference - (progress / 100) * circumference;
+    circle.style.strokeDashoffset = offset;
 
     // Update stroke color based on progress
     const color = interpolateColor(progress, [255, 0, 0], [0, 255, 0]); // Interpolate color for visual feedback
@@ -139,15 +138,14 @@ function animateSkillProgress(circle, targetValue, percentageTextDiv) {
     }
   }
 
-  animate(); // Start the animation loop
+  animate();
 }
 
 function interpolateColor(progress, startColor, endColor) {
   return (
     startColor
-      .map(
-        (start, i) =>
-          Math.round(start + (endColor[i] - start) * (progress / 100)) // Normalize progress for color interpolation
+      .map((start, i) =>
+        Math.round(start + (endColor[i] - start) * (progress / 100))
       )
       .reduce((accum, color) => `${accum}${color},`, "rgb(")
       .slice(0, -1) + ")"
@@ -163,7 +161,7 @@ function cancelOngoingAnimations() {
 // Reset all icons and progress rings
 function resetAllIconsAndProgress() {
   cancelOngoingAnimations();
-  animationInProgress = false; // Ensure flag is reset
+  animationInProgress = false;
 
   // Reset states of all icons and hide progress rings
   iconElements.forEach((icon, index) => {
