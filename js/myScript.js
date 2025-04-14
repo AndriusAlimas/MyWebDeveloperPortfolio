@@ -69,7 +69,6 @@ iconElements.forEach((icon, index) => {
 
   // Add click event listener to the icon
   icon.addEventListener("click", () => {
-    // Toggle description visibility
     if (description.style.display === "block") {
       description.style.display = "none"; // Hide the description if visible
     } else {

@@ -640,21 +640,80 @@ const moreInfo = {
                         more.
                       </p>`,
 };
-// Function to load skill descriptions into the appropriate elements
+// Common SVG and structure template without image or specific content
+const commonProgressRingTemplate = `
+  <svg class="progress-ring" width="120" height="120" style="display: none">
+    <circle class="progress-ring__circle" stroke-width="2" fill="transparent" r="34" cx="58" cy="58" />
+    </svg>
+    <div class="percentage"></div>
+    <div class="description"></div>
+    <div class="moreInfo"></div>
+  
+`;
+
+// Object mapping skill types to their respective image paths
+const imagePaths = {
+  html: "./img/html5_icon.png",
+  css: "./img/css_icon.png",
+  javascript: "./img/js_icon.png",
+  python: "./img/python_icon.png",
+  react: "./img/react_icon.png",
+  java: "./img/java_icon.png",
+  bootstrap: "./img/bootstrap.png",
+  git: "./img/git.png",
+  jquery: "./img/jQuery_icon.png",
+};
+
+const progressRing = {
+  html: `    <svg
+                      class="progress-ring"
+                      width="120"
+                      height="120"
+                      style="display: none"
+                    >
+                      <circle
+                        class="progress-ring__circle"
+                        stroke-width="2"
+                        fill="transparent"
+                        r="34"
+                        cx="58"
+                        cy="58"
+                      />
+                    </svg>
+                    <img src="./img/html5_icon.png" alt="HTML Icon" />
+                    <div class="percentage"></div>
+                    <div class="description"></div>
+                    <div class="moreInfo"></div>`,
+};
+/// Function to load skill descriptions into the appropriate elements
 function loadSkillDescriptions() {
   const skills = document.querySelectorAll(".icon"); // Select all skill icons
   skills.forEach((skill) => {
     const skillType = skill.getAttribute("data-skill").toLowerCase(); // Get the skill type from data attribute
+    const imagePath = imagePaths[skillType] || ""; // Get the image path for the skill
+
+    // Build the complete HTML content dynamically
+    const completeHtml = `
+        <img src="${imagePath}" alt="${
+      skillType.charAt(0).toUpperCase() + skillType.slice(1)
+    } Icon" />
+        ${commonProgressRingTemplate}
+    
+      `;
+
+    // Insert the complete content into the skill element
+    skill.innerHTML = completeHtml;
+
     const descriptionDiv = skill.querySelector(".description"); // Select the description div
-    const moreInfoDiv = skill.querySelector(".moreInfo"); // Select moreInfo div
-    if (descriptionDiv) {
+    const moreInfoDiv = skill.querySelector(".moreInfo"); // Select the moreInfo div
+
+    if (descriptionDiv && skillDescriptions[skillType]) {
       descriptionDiv.innerHTML = skillDescriptions[skillType]; // Inject the corresponding description
     }
-    if (moreInfoDiv) {
-      moreInfoDiv.innerHTML = moreInfo[skillType];
+
+    if (moreInfoDiv && moreInfo[skillType]) {
+      moreInfoDiv.innerHTML = moreInfo[skillType]; // Inject more information
     }
   });
 }
-
-// Call the function to load descriptions when the document is ready
-document.addEventListener("DOMContentLoaded", loadSkillDescriptions);
+loadSkillDescriptions();
