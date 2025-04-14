@@ -556,6 +556,16 @@ const skillDescriptions = {
       <li><strong>File System Management:</strong> Perform file operations such as reading and writing using Node’s built-in fs module.</li>
     </ul>
   `,
+  php: `
+    <ul>
+      <li><strong>Basic Syntax:</strong> Understand the basic syntax of PHP, including variables, data types, and operators, allowing for basic scripting.</li>
+      <li><strong>Control Structures:</strong> Familiar with control structures such as if statements, loops (for, while), and how to manipulate program flow.</li>
+      <li><strong>Form Handling:</strong> Gain the ability to handle form data submitted via GET and POST methods, allowing for user interaction.</li>
+      <li><strong>Basic Database Interaction:</strong> Familiar with using PHP to connect to a MySQL database and perform basic CRUD operations (Create, Read, Update, Delete).</li>
+      <li><strong>Creating Functions:</strong> Ability to define and call functions to encapsulate reusable code, improving organization and readability.</li>
+      <li><strong>File Handling:</strong> Basic capability to open, read, write, and close files using PHP’s built-in functions, ensuring the ability to manage file operations.</li>
+      <li><strong>Understanding of PHP Sessions and Cookies:</strong> Data handling using PHP sessions and cookies to store user information persistently across pages.</li>
+    </ul>`,
 };
 const moreInfo = {
   html: `
@@ -654,6 +664,12 @@ const moreInfo = {
                         A proficiency level of 72% in Node.js indicates a solid understanding of building scalable network applications. This proficiency includes effectively managing asynchronous operations, understanding Node’s ecosystem, and creating robust server-side logic. Press an icon to learn more.
                       </p>
                     `,
+  php: `
+    <strong>PHP: Hypertext Preprocessor</strong><br />
+    <p>
+      A proficiency level of 30% in PHP indicates a basic understanding of server-side scripting. With this foundational knowledge, I can write simple scripts and interact with databases to create dynamic web applications. I am working on understanding how to handle form submissions, manage sessions, and perform basic CRUD operations with MySQL. Press an icon to learn more.
+    </p>
+  `,
 };
 // Common SVG and structure template without image or specific content
 const commonProgressRingTemplate = `
@@ -678,6 +694,7 @@ const imagePaths = {
   git: "./img/git.png",
   jquery: "./img/jQuery_icon.png",
   node_js: "./img/node_js.svg",
+  php: "./img/php.png",
 };
 
 const progressRing = {
