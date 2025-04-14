@@ -548,14 +548,110 @@ const skillDescriptions = {
                       </ul>
     `,
 };
+const moreInfo = {
+  html: `
+ <strong>HTML: HyperText Markup Language</strong><br />
+                      <p>
+                        A 100% proficiency in HTML signifies complete mastery of
+                        creating and structuring content for the web. Press an
+                        icon to learn more.
+                      </p>
+`,
+  css: `
+ <strong>CSS: Cascading Style Sheets</strong><br />
+                      <p>
+                        A proficiency level of 80% in CSS indicates a strong
+                        foundation and capability in styling web content
+                        effectively. With this level of expertise, you can
+                        confidently create visually appealing and responsive
+                        designs. Press an icon to learn more.
+                      </p>
+`,
+  javascript: `
+<strong>JavaScript ES6</strong><br />
+                      <p>
+                        A proficiency level of 90% in JavaScript indicates a
+                        strong command of both foundational and advanced
+                        concepts. With this level of expertise, I am
+                        well-equipped to develop complex web applications, build
+                        interactive features, and handle dynamic content
+                        effectively. Press an icon to learn more.
+                      </p>`,
+  python: ` <strong>Python</strong>
+                      <p>
+                        A proficiency level of 22% in Python indicates a basic
+                        understanding of core concepts. With this foundational
+                        knowledge, I am beginning to explore more advanced
+                        topics and build my skills through learning resources
+                        and practical applications. Press an icon to learn more.
+                      </p>`,
+  react: ` <strong
+                        >React: A JavaScript Library for Building UIs</strong
+                      ><br />
+                      <p>
+                        A proficiency level of 75% in React indicates a solid
+                        understanding of both fundamental and intermediate
+                        concepts. With this level of expertise, I am
+                        well-equipped to build interactive user interfaces and
+                        enhance web applications effectively. Please click an
+                        icon to learn more
+                      </p>`,
+  java: ` <strong>Java</strong><br />
+                      <p>
+                        A proficiency level of 60% in Java indicates a solid
+                        understanding of foundational concepts and an ability to
+                        develop moderately complex applications. With this level
+                        of expertise, I am capable of handling various
+                        programming tasks and seeking to deepen my knowledge
+                        through practice and learning resources. Press an icon
+                        to learn more.
+                      </p>`,
+  bootstrap: ` <strong>Bootstrap: CSS Framework</strong>
+                      <p>
+                        A proficiency level of 70% in Bootstrap indicates a
+                        strong foundation in using this powerful framework to
+                        build responsive and visually appealing web
+                        applications. With this level of expertise, I can
+                        efficiently utilize Bootstrap components and utilities
+                        to streamline development while continually enhancing my
+                        skills. Press an icon to learn more.
+                      </p>`,
+  git: ` <strong>Git: Version Control for Collaboration</strong
+                      ><br />
+                      <p>
+                        A proficiency level of 80% in Git indicates a solid
+                        command of version control principles, enabling
+                        efficient collaboration and management of code changes
+                        in development projects. With this expertise, I can
+                        navigate and manage Git effectively while continually
+                        seeking to enhance my knowledge in advanced Git
+                        workflows and techniques. Press an icon to learn more.
+                      </p>`,
+  jquery: `  <strong
+                        >jQuery: A Fast and Lightweight JavaScript
+                        Library</strong
+                      ><br />
+                      <p>
+                        A proficiency level of 82% in jQuery signifies an
+                        ability to create interactive and user-friendly web
+                        applications. I can effectively manipulate the DOM,
+                        handle events, and enhance user experience while
+                        exploring more advanced features. Press an icon to learn
+                        more.
+                      </p>`,
+};
 // Function to load skill descriptions into the appropriate elements
 function loadSkillDescriptions() {
   const skills = document.querySelectorAll(".icon"); // Select all skill icons
   skills.forEach((skill) => {
     const skillType = skill.getAttribute("data-skill").toLowerCase(); // Get the skill type from data attribute
     const descriptionDiv = skill.querySelector(".description"); // Select the description div
+    const moreInfoDiv = skill.querySelector(".moreInfo"); // Select moreInfo div
     if (descriptionDiv) {
       descriptionDiv.innerHTML = skillDescriptions[skillType]; // Inject the corresponding description
+    }
+    if (moreInfoDiv) {
+      moreInfoDiv.innerHTML = moreInfo[skillType];
     }
   });
 }
