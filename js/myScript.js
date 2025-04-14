@@ -1,6 +1,7 @@
 const resumeItems = document.querySelectorAll(".resume-list");
 const resumeDetails = document.querySelectorAll(".resume-box");
 const portfolioList = document.querySelectorAll(".portfolio-list");
+const portfolioBoxs = document.querySelectorAll(".portfolio-box");
 const skillTextSpans = document.querySelectorAll(
   ".technical-bars .bar .info span"
 );
@@ -61,6 +62,9 @@ portfolioList.forEach((list, index) => {
   list.addEventListener("click", () => {
     document.querySelector(".portfolio-list.active").classList.remove("active");
     list.classList.add("active");
+
+    document.querySelector(".portfolio-box.active").classList.remove("active");
+    portfolioBoxs[index].classList.add("active");
   });
 });
 
