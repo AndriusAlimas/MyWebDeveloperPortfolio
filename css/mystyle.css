@@ -290,7 +290,9 @@ color: var(--bg-color);
   font-size: 2.5rem;
 }
 
-.tab-list.resume-list.active{
+.tab-list.resume-list.active,
+.tab-list.portfolio-list.active
+{
   border-color: var(--main-color);
   color: var(--main-color);
 }
@@ -547,7 +549,12 @@ div[data-skill="JavaScript"].icon.active div.percentage{
 
 div[data-skill="mysql"].icon.active div.moreInfo{
     top: -46%;
-     }
+}
+
 div[data-skill="netlify"].icon.active div.moreInfo{
     top: -40%;
-      }     
+} 
+
+.portfolio-list:nth-child(2){
+  justify-content: flex-end;
+}
