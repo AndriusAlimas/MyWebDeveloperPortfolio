@@ -99,7 +99,7 @@ nav{
   transition: .3s;
 }
 
-.nav-list li:hover .tooltip, a:hover .tooltip{
+.nav-list li:hover .tooltip, a:hover .tooltip, .portfolio-item:hover .work-info{
   visibility: visible;
   opacity: 1;
 }
@@ -607,6 +607,9 @@ div[data-skill="netlify"].icon.active div.moreInfo{
 
 .portfolio-item .work-info{
   z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s;
 }
 
 .portfolio-item .work-info h4{
