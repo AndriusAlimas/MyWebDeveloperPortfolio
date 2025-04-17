@@ -146,6 +146,10 @@ nav{
   transform: translateX(-50vw) translateZ(-50vw) rotateY(-90deg);
 }
 
+.section.contact{
+  visibility: hidden;
+}
+
 .home,
 .about{
   display: flex;
@@ -732,4 +736,12 @@ div[data-skill="netlify"].icon.active div.moreInfo{
 .contact-form .field-box textarea{
   height: 20rem;
   resize: none;
+}
+
+.contact-form .contact-btn {
+  margin-top: 2rem;
+}
+
+.contact-form .contact-btn .btn{
+  cursor: pointer;
 }
