@@ -645,3 +645,45 @@ div[data-skill="netlify"].icon.active div.moreInfo{
 .portfolio-icon.work-icon a:nth-child(1) i{
   transform: rotate(135deg);
 }
+
+.portfolio-item .service-icon{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .5rem;
+}
+
+.portfolio-item .service-icon i:nth-child(1){
+  font-size: 4rem;
+  margin-left: -.3rem;
+}
+
+.portfolio-item .service-icon a i{
+  transform: rotate(-135deg);
+  transition: .3s;
+}
+
+.portfolio-item .service-icon a:hover i{
+  transform: rotate(-180deg);
+}
+
+.portfolio-item:hover .service-icon .icon-img{
+  color: var(--main-color);
+}
+
+.portfolio-item:hover .service-icon a{
+  background: var(--main-color);
+}
+
+.portfolio-box.service .portfolio-item h4{
+  transition: .3s;
+}
+
+.portfolio-box.service .portfolio-item:hover h4{
+  color: var(--main-color);
+}
+
+.tab-wrapper .tab-grid.service{
+  display: flex;
+  flex-wrap: wrap;
+}
