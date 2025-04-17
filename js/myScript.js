@@ -7,7 +7,7 @@ const skillTextSpans = document.querySelectorAll(
 );
 const iconElements = document.querySelectorAll(".icon");
 const skillProgressRings = document.querySelectorAll(".progress-ring");
-
+const navs = document.querySelectorAll(".nav-list li");
 const start = true;
 
 // Create iconData dynamically based on iconElements
@@ -38,6 +38,13 @@ let currentAnimationFrame;
 let animationInProgress = false;
 let currentIconIndex = 0;
 let activeIconIndex = null;
+
+navs.forEach((nav, index) => {
+  nav.addEventListener("click", () => {
+    document.querySelector(".nav-list li.active").classList.remove("active");
+    nav.classList.add("active");
+  });
+});
 
 // Resume section handling
 resumeItems.forEach((item, index) => {
