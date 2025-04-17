@@ -9,6 +9,7 @@ const iconElements = document.querySelectorAll(".icon");
 const skillProgressRings = document.querySelectorAll(".progress-ring");
 const navs = document.querySelectorAll(".nav-list li");
 const cube = document.querySelector(".box");
+const sections = document.querySelectorAll(".section");
 const start = true;
 
 // Create iconData dynamically based on iconElements
@@ -46,6 +47,20 @@ navs.forEach((nav, index) => {
     nav.classList.add("active");
 
     cube.style.transform = `rotateY(${index * -90}deg)`;
+    document.querySelector(".section.active").classList.remove("active");
+    sections[index].classList.add("active");
+
+    const array = Array.from(sections);
+    const arrSecs = array.slice(1, -1); // only requires indexses 1,2,3 or does not require start and end indexses
+
+    arrSecs.forEach((arrSec) => {
+      if (arrSec.classList.contains("active")) {
+        sections[4].classList.add("action-contact");
+      }
+    });
+    if (sections[0].classList.contains("active")) {
+      sections[4].classList.remove("action-contact");
+    }
   });
 });
 

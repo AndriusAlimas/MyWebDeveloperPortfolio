@@ -118,6 +118,7 @@ nav{
   transform-style: preserve-3d;
   transform-origin: 50% 50% -50vw;
   transform: rotateY(0deg);
+  transition: 2s;
 }
 
 .section{
@@ -148,6 +149,19 @@ nav{
 
 .section.contact{
   visibility: hidden;
+  transition-delay: .5s;
+}
+
+.section.contact.active{
+  visibility: visible;
+}
+
+.section.contact.action-contact{
+  transition-delay: 1.5s;
+}
+
+.section.contact.action-contact.active{
+  transition-delay: 0s;
 }
 
 .home,
