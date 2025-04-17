@@ -8,6 +8,7 @@ const skillTextSpans = document.querySelectorAll(
 const iconElements = document.querySelectorAll(".icon");
 const skillProgressRings = document.querySelectorAll(".progress-ring");
 const navs = document.querySelectorAll(".nav-list li");
+const cube = document.querySelector(".box");
 const start = true;
 
 // Create iconData dynamically based on iconElements
@@ -43,6 +44,8 @@ navs.forEach((nav, index) => {
   nav.addEventListener("click", () => {
     document.querySelector(".nav-list li.active").classList.remove("active");
     nav.classList.add("active");
+
+    cube.style.transform = `rotateY(${index * -90}deg)`;
   });
 });
 
