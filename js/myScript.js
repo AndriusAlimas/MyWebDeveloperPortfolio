@@ -1,5 +1,7 @@
 const resumeItems = document.querySelectorAll(".resume-list");
 const resumeDetails = document.querySelectorAll(".resume-box");
+const portfolioList = document.querySelectorAll(".portfolio-list");
+const portfolioBoxs = document.querySelectorAll(".portfolio-box");
 const skillTextSpans = document.querySelectorAll(
   ".technical-bars .bar .info span"
 );
@@ -34,8 +36,8 @@ const skillLevels = {
 
 let currentAnimationFrame;
 let animationInProgress = false;
-let currentIconIndex = 0; // Track which icon is currently being viewed
-let activeIconIndex = null; // Track which icon is currently active
+let currentIconIndex = 0;
+let activeIconIndex = null;
 
 // Resume section handling
 resumeItems.forEach((item, index) => {
@@ -55,6 +57,16 @@ function handleResumeClick(index, listElement) {
     resetTextAnimation(skillTextSpans);
   }
 }
+
+portfolioList.forEach((list, index) => {
+  list.addEventListener("click", () => {
+    document.querySelector(".portfolio-list.active").classList.remove("active");
+    list.classList.add("active");
+
+    document.querySelector(".portfolio-box.active").classList.remove("active");
+    portfolioBoxs[index].classList.add("active");
+  });
+});
 
 function setActiveClass(elements, activeElement) {
   elements.forEach((item) => item.classList.remove("active"));
