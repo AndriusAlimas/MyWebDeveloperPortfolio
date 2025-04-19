@@ -112,6 +112,7 @@ iconElements.forEach((icon, index) => {
   });
   icon.addEventListener("click", () => {
     if (!animationInProgress && !icon.classList.contains("active")) {
+      updateCircleAttributes();
       currentIconIndex = index;
       activeIconIndex = index;
       resetAllIconsAndProgress();
@@ -275,4 +276,23 @@ rightArrow.addEventListener("click", () => {
   updateIconVisibility();
 });
 
+function updateCircleAttributes() {
+  const circle = document.querySelector(".progress-ring__circle");
+  console.log(circle);
+  if (window.innerWidth <= 480 && circle) {
+    circle.setAttribute("r", 25); // Change radius for small screens
+    circle.setAttribute("cx", 40); // Adjust center x for small screens
+    circle.setAttribute("cy", 40); // Adjust center y for small screens
+  } else {
+    circle.setAttribute("r", 34); // Revert to original radius
+    circle.setAttribute("cx", 58); // Revert to original center x
+    circle.setAttribute("cy", 58); // Revert to original center y
+  }
+}
+
+// Initial call to set attributes based on current window size
+updateCircleAttributes();
+
 updateIconVisibility(); // Initial call to set visibility on load
+// Add event listener to update attributes on resize
+window.addEventListener("resize", updateCircleAttributes);
