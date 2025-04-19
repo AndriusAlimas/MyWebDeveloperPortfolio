@@ -75,12 +75,6 @@ function handleResumeClick(index, listElement) {
   setActiveClass(resumeItems, listElement);
   setActiveClass(resumeDetails, resumeDetails[index]);
   resetAllIconsAndProgress();
-
-  if (listElement.textContent.trim() === "Skills") {
-    // triggerTextAnimation(skillTextSpans);
-  } else {
-    resetTextAnimation(skillTextSpans);
-  }
 }
 
 portfolioList.forEach((list, index) => {
@@ -278,7 +272,6 @@ rightArrow.addEventListener("click", () => {
 
 function updateCircleAttributes() {
   const circle = document.querySelector(".progress-ring__circle");
-  console.log(circle);
   if (window.innerWidth <= 480 && circle) {
     circle.setAttribute("r", 25); // Change radius for small screens
     circle.setAttribute("cx", 40); // Adjust center x for small screens
@@ -296,3 +289,7 @@ updateCircleAttributes();
 updateIconVisibility(); // Initial call to set visibility on load
 // Add event listener to update attributes on resize
 window.addEventListener("resize", updateCircleAttributes);
+
+setTimeout(() => {
+  sections[4].classList.remove("active");
+}, 1500);
