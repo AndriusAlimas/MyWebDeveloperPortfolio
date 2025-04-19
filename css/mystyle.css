@@ -851,6 +851,11 @@ div[data-skill="netlify"].icon.active div.moreInfo {
     left: 410%;
   }
 
+
+  .description {
+    width: 16rem;
+    transform: translate(-38%, 3%);
+  }
   .btn {
     font-size: 1.5rem;
   }
@@ -899,9 +904,9 @@ div[data-skill="netlify"].icon.active div.moreInfo {
   }
 
   .description {
-    width: 15rem;
+    width: 13rem;
     font-size: 0.7rem;
-    transform: translate(-44%, 0);
+   
   }
 }
 
